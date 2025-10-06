@@ -1,0 +1,43 @@
+{
+  "metrics": {
+    "namespace": "CWAgent",
+    "metrics_collected": {
+      "mem": {
+        "measurement": [
+          {
+            "name": "mem_used_percent",
+            "rename": "MemoryUtilization",
+            "unit": "Percent"
+          }
+        ],
+        "metrics_collection_interval": 60
+      },
+      "disk": {
+        "measurement": [
+          {
+            "name": "used_percent",
+            "rename": "DiskUtilization",
+            "unit": "Percent"
+          }
+        ],
+        "metrics_collection_interval": 60,
+        "resources": [
+          "/"
+        ]
+      }
+    },
+    "append_dimensions": {
+      "InstanceId": "\${aws:InstanceId}",
+      "InstanceName": "\${aws:Tag:Name}"
+    }
+  },
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+$(IFS=; echo "${LOG_CONFIGS[*]}")
+        ]
+      }
+    }
+  }
+}
