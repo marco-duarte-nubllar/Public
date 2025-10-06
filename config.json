@@ -29,7 +29,12 @@
     "append_dimensions": {
       "InstanceId": "\${aws:InstanceId}",
       "InstanceName": "\${aws:Tag:Name}"
-    }
+    },
+    "aggregation_dimensions": [
+      ["InstanceId", "InstanceName"],
+      ["InstanceId"],
+      []
+    ]
   },
   "logs": {
     "logs_collected": {
