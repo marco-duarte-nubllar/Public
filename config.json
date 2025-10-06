@@ -20,7 +20,7 @@
             "unit": "Percent"
           }
         ],
-        "metrics_collection_interval": 60,
+        "metrics_collection_interval": 300,
         "resources": [
           "/"
         ]
